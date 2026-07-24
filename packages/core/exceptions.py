@@ -1,0 +1,2 @@
+class ReasoningException(Exception):
+    pass
