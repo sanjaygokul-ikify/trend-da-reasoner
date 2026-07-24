@@ -1,0 +1,4 @@
+# Default configuration
+engine:
+  port: 8080
+  num_nodes: 5
