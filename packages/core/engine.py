@@ -26,7 +26,7 @@ class ReasoningEngine:
             self.logger.info('Model trained successfully')
         except Exception as e:
             self.logger.error(f'Model training failed: {e}')
-            raise
+            raise ReasoningException('Error during model training')
 
     def predict(self, data: pd.DataFrame) -> List[float]:
         try:
@@ -34,7 +34,7 @@ class ReasoningEngine:
             return predictions.tolist()
         except Exception as e:
             self.logger.error(f'Prediction failed: {e}')
-            raise
+            raise ReasoningException('Error during prediction')
 
     def evaluate(self, data: pd.DataFrame, target: pd.Series):
         try:
@@ -43,7 +43,7 @@ class ReasoningEngine:
             self.logger.info(f'Model accuracy: {accuracy:.3f}')
         except Exception as e:
             self.logger.error(f'Evaluation failed: {e}')
-            raise
+            raise ReasoningException('Error during evaluation')
 
     def reason(self, data: pd.DataFrame) -> ReasoningOutput:
         try:
